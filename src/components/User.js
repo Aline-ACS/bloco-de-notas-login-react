@@ -109,33 +109,6 @@ export default () => {
           </Link>
         </Button>
       </Form>
-
-      {/* <Table
-        hover
-        style={{
-          width: '600px',
-          margin: 'auto',
-          paddingTop: '50px',
-          textAlign: 'center',
-        }}
-      >
-        <thead>
-          <tr>
-            <th>UID</th>
-            <th>NOME</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((userNote) => (
-            <React.Fragment key={userNote.uid}>
-              <tr>
-                <td>{userNote.uid}</td>
-                <td>{userNote.name}</td>
-              </tr>
-            </React.Fragment>
-          ))}
-        </tbody>
-      </Table> */}
     </>
   );
 };
