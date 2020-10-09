@@ -29,7 +29,6 @@ export default () => {
     setContent('');
     setDate('');
     setHour('');
-    // setUser('');
   }
 
   async function handleDeleteNote(uid) {
