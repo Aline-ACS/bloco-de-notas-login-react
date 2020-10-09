@@ -22,7 +22,10 @@ export default () => {
         phone,
         password,
       })
-      .then((response) => setUsers([...users, response.data.user]))
+      .then((response) => {
+        setUsers([...users, response.data.user]);
+        alert('Usuário cadastrado com sucesso!');
+      })
       .catch((error) => console.log(error));
     setName('');
     setEmail('');
@@ -33,7 +36,9 @@ export default () => {
   useEffect(() => {
     api
       .get('/users')
-      .then((response) => setUsers(response.data.users))
+      .then((response) => {
+        setUsers(response.data.users);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -105,7 +110,7 @@ export default () => {
         </Button>
       </Form>
 
-      <Table
+      {/* <Table
         hover
         style={{
           width: '600px',
@@ -130,7 +135,7 @@ export default () => {
             </React.Fragment>
           ))}
         </tbody>
-      </Table>
+      </Table> */}
     </>
   );
 };

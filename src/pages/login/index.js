@@ -18,6 +18,7 @@ export default () => {
       if (response.data.token) {
         dispatch(userActions.login(response.data));
       }
+      localStorage.setItem('userUid', response.data.user.uid);
     } catch (error) {
       console.log(error);
 

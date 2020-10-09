@@ -7,7 +7,7 @@ export default () => {
   const [content, setContent] = useState('');
   const [date, setDate] = useState('');
   const [hour, setHour] = useState('');
-  const [user_uid, setUser] = useState('');
+  const user_uid = localStorage.getItem('userUid');
 
   const [notes, setNotes] = useState([]);
 
@@ -20,13 +20,16 @@ export default () => {
         hour,
         user_uid,
       })
-      .then((response) => setNotes([...notes, response.data.created]))
+      .then((response) => {
+        setNotes([...notes, response.data.created]);
+        alert('Nota cadastrada com sucesso!');
+      })
       .catch((error) => console.log(error));
     setTitle('');
     setContent('');
     setDate('');
     setHour('');
-    setUser('');
+    // setUser('');
   }
 
   async function handleDeleteNote(uid) {
@@ -65,17 +68,6 @@ export default () => {
           Cadastro de Notas
         </h3>
         <br />
-        <FormGroup row>
-          <Label sm={2}>Usuário</Label>
-          <Col sm={10}>
-            <Input
-              type="text"
-              value={user_uid}
-              onChange={(e) => setUser(e.target.value)}
-            />
-          </Col>
-        </FormGroup>
-
         <FormGroup row>
           <Label sm={2}>Título</Label>
           <Col sm={10}>
